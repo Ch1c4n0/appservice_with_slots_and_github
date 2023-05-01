@@ -1,0 +1,30 @@
+az login
+
+#criar grupo de recurso
+
+az group create --location eastus --name terraformstate
+
+## criar storage account
+
+az storage account create --name tstateaztreinamento --resource-group terraformstate --location eastus --sku Standard_LRS
+
+## criar um container do storage account 
+
+az storage container create -n terraformstate --account-name tstateaztreinamento
+
+## Informar as keys
+
+az storage account keys list -g terraformstate -n tstateaztreinamento
+
+## Criar Workspace
+
+terraform Workspace new name
+
+## Selecionar Wk
+
+terraform Workspace select name
+
+## listar
+
+terraform Workspace list
+
